@@ -33,7 +33,7 @@ def calculate(path_for_calculate):
 
 def get_bispectr_path():
     output_path = keyring.get_password('bispectr', 'path')
-    if os.path.exists(output_path):
+    if output_path and isinstance(output_path, str) and os.path.exists(output_path):
         return output_path
     else:
         return set_bispectr_path()
